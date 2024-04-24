@@ -1,0 +1,15 @@
+.header-container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 10px 20px; 
+  }
+  
+  .header-container .logo {
+    font-size: 50px; 
+  }
+  
+  p{
+    padding: 20px;
+  }
+  
