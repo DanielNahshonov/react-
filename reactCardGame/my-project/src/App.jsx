@@ -44,19 +44,19 @@ function App() {
   }
 
   const validName = (name) => {
-    const existingPlayer = playersList.find( p => p.fullName === name)
-    if(!existingPlayer){
-      setPlayer({ fullName: name, wins: 0, lost: 0 });
-      addPlayer({ fullName: name, wins: 0, lost: 0 })
-      
-    }else{
-      let index = playersList.indexOf(existingPlayer)
-      setPlayerIndex(index)
-      setPlayer(playersList(index))
-    }
-    createDeck();
-        setPage(1);
+    const existingPlayerIndex = playersList.findIndex(p => p.fullName === name);
 
+  if (existingPlayerIndex === -1) {
+    setPlayer({ fullName: name, wins: 0, lost: 0 });
+    addPlayer({ fullName: name, wins: 0, lost: 0 });
+    setPlayerIndex(playersList.length);
+  } else {
+    setPlayerIndex(existingPlayerIndex);
+    setPlayer(playersList[existingPlayerIndex]);
+  }
+
+  createDeck();
+  setPage(1);
 
 
 
@@ -92,8 +92,7 @@ function App() {
     setPlayerPoints(0)
     setComputerPoints(0)
     setPage(1)
-    setPlayerIndex()
-
+    setPlayerIndex(playerIndex)
   }
 
   const showPages = () =>{

@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import Table from '../components/Table'
 
-export default function HomePage({validName}) {
+export default function HomePage({validName,playersList}) {
 const [name,setName] = useState('')
 
 
@@ -17,7 +17,7 @@ const [name,setName] = useState('')
         onClick={()=> validName(name)}
         className='mt-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
         >Start</button>
-        <Table/>
+        <Table playersList={playersList}/>
     </div>
   )
 }
